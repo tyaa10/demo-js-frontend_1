@@ -32,11 +32,23 @@
             } else {
                 secondDiv.style.backgroundColor = 'navy'
             }
-
         })
         circleDiv.addEventListener('mousemove', (ev) => {
             firstDiv.style.backgroundColor = `rgb(255, ${ev.pageX}, ${ev.pageY})`
         })
+        setTimeout(() => {
+            firstDiv.style.backgroundColor = 'green'
+        }, 5000)
+        const interval = setInterval(() => {
+            if (circleDiv.style.backgroundColor !== 'green') {
+                circleDiv.style['background-color'] = 'green'
+            } else {
+                circleDiv.style.backgroundColor = 'navy'
+            }
+        }, 3000)
+        setTimeout(() => {
+            clearInterval(interval)
+        }, 12000)
     </script>
 </body>
 </html>
