@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Frontend Lesson 1</title>
+    <style>
+        div {
+            background: navy;
+            height: 50px;
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div onclick="alert('Hello JS Browser Events!')"></div>
+    <br>
+    <div id="secondDiv"></div>
+    <script>
+        console.log(secondDiv)
+        secondDiv.addEventListener('click', () => {
+            alert('Hello JS Browser Events 2!')
+        })
+    </script>
+</body>
+</html>
