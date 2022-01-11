@@ -9,16 +9,33 @@
             height: 50px;
             width: 100px;
         }
+        div#circleDiv {
+            border-radius: 50%;
+        }
     </style>
 </head>
 <body>
-    <div onclick="alert('Hello JS Browser Events!')"></div>
+    <div id="firstDiv" onclick="alert('Hello JS Browser Events!')"></div>
     <br>
     <div id="secondDiv"></div>
+    <br>
+    <div id="circleDiv"></div>
     <script>
         console.log(secondDiv)
-        secondDiv.addEventListener('click', () => {
-            alert('Hello JS Browser Events 2!')
+        // установка обработчика события типа 'click' на блок с id="secondDiv"
+        secondDiv.addEventListener('click', (ev) => {
+            // alert('Hello JS Browser Events 2!')
+            // console.log(ev)
+            if (secondDiv.style.backgroundColor !== 'red') {
+                // secondDiv.style.backgroundColor = 'red'
+                secondDiv.style['background-color'] = 'red'
+            } else {
+                secondDiv.style.backgroundColor = 'navy'
+            }
+
+        })
+        circleDiv.addEventListener('mousemove', (ev) => {
+            firstDiv.style.backgroundColor = `rgb(255, ${ev.pageX}, ${ev.pageY})`
         })
     </script>
 </body>
