@@ -27,7 +27,7 @@
     <br>
     <textarea id="text"></textarea>
     <br>
-    <a href="http://www.google.com">Google</a>
+    <a id="googleLink" href="http://www.google.com">Google</a>
     <script>
         // установка обработчика события типа 'click' на блок с id="secondDiv"
         secondDiv.addEventListener('click', (ev) => {
@@ -72,6 +72,15 @@
                 }
                 return null
             }
+        googleLink.addEventListener('click', (ev) => {
+            ev.preventDefault()
+            // ev.stopPropagation()
+            alert('Go to Google!')
+        })
+        document.getElementsByTagName('body')[0].addEventListener('click', (ev) => {
+            console.log('body click')
+            console.log(ev.target)
+        })
     </script>
 </body>
 </html>
