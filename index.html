@@ -12,6 +12,10 @@
         div#circleDiv {
             border-radius: 50%;
         }
+        /* div#secondDiv {
+
+
+        } */
     </style>
 </head>
 <body>
@@ -20,8 +24,11 @@
     <div id="secondDiv"></div>
     <br>
     <div id="circleDiv"></div>
+    <br>
+    <textarea id="text"></textarea>
+    <br>
+    <a href="http://www.google.com">Google</a>
     <script>
-        console.log(secondDiv)
         // установка обработчика события типа 'click' на блок с id="secondDiv"
         secondDiv.addEventListener('click', (ev) => {
             // alert('Hello JS Browser Events 2!')
@@ -32,6 +39,13 @@
             } else {
                 secondDiv.style.backgroundColor = 'navy'
             }
+            secondDiv.style.position = 'sticky'
+            secondDiv.style.left = 0
+            setInterval(() => {
+                const oldLeft = Number(secondDiv.style.left.toString().replace('px', ''))
+                secondDiv.style.left = (oldLeft + 10).toString() + 'px'
+                console.log(secondDiv.style.left)
+            }, 100)
         })
         circleDiv.addEventListener('mousemove', (ev) => {
             firstDiv.style.backgroundColor = `rgb(255, ${ev.pageX}, ${ev.pageY})`
@@ -49,6 +63,15 @@
         setTimeout(() => {
             clearInterval(interval)
         }, 12000)
+        window.onbeforeunload =
+            function(ev) {
+                if(text.value.length > 0) {
+                    const msg = 'Text not saved'
+                    ev.returnValue = msg
+                    return msg
+                }
+                return null
+            }
     </script>
 </body>
 </html>
